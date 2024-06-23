@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <h1>Library</h1>
@@ -19,33 +23,73 @@
             <input type="number" id="pages" name="pages">
             <label for="finished">Finished Reading?</label>
             <input type="checkbox" id="finished" name="finished" value="true">
-            <button>Add</button>
+            <button>Add Book</button>
         </div>
     </div>
 
     <div id="book-cards">
         <div class="book-card">
             <h3 class="book-title">Kitchen Confidential</h3>
-            <h4 class="book-author">Anthony Bourdain</h3>
-            <h4 class="book-pages-heading">Pages:</h4>
-            <p id="book-pages">389</p>
-            <h4 class="finished">Finished</h4>
+            <div class="author-container">
+                <p>by</p>
+                <p class="author-name">Anthony Bourdain</p>
+            </div>
+            <div id="pages-finished-container">
+                <div class="pages-container">
+                    <p id="page-num">245</p>
+                    <p class="book-pages-heading">Pages</p>
+                </div>
+                <p>•</p>
+                <p class="finished">Finished</p>
+            </div>
         </div>
 
         <div class="book-card">
             <h3 class="book-title">Savor</h3>
-            <h4 class="book-author">Fatima Ali</h3>
-            <h4 class="book-pages-heading">Pages:</h4>
-            <p id="book-pages">364</p>
-            <h4 class="finished">Finished</h4>
+            <div class="author-container">
+                <p>by</p>
+                <p class="author-name">Fatima Ali</p>
+            </div>
+            <div id="pages-finished-container">
+                <div class="pages-container">
+                    <p id="page-num">245</p>
+                    <p class="book-pages-heading">Pages</p>
+                </div>
+                <p>•</p>
+                <p class="finished">Finished</p>
+            </div>
         </div>
 
         <div class="book-card">
             <h3 class="book-title">The Creative Act: A Way of Being</h3>
-            <h4 class="book-author">Rick Rubin</h3>
-            <h4 class="book-pages-heading">Pages:</h4>
-            <p id="book-pages">245</p>
-            <h4 class="finished">Finished</h4>
+            <div class="author-container">
+                <p>by</p>
+                <p class="author-name">Rick Rubin</p>
+            </div>
+            <div id="pages-finished-container">
+                <div class="pages-container">
+                    <p id="page-num">245</p>
+                    <p class="book-pages-heading">Pages</p>
+                </div>
+                <p>•</p>
+                <p class="finished">Finished</p>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <h3 class="book-title">Atomic Habits</h3>
+            <div class="author-container">
+                <p>by</p>
+                <p class="author-name">James Clear</p>
+            </div>
+            <div id="pages-finished-container">
+                <div class="pages-container">
+                    <p id="page-num">245</p>
+                    <p class="book-pages-heading">Pages</p>
+                </div>
+                <p>•</p>
+                <p class="finished">Finished</p>
+            </div>
         </div>
 
     </div>
