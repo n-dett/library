@@ -4,8 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Library</h1>
+    <div id="add-book">
+        <div id="inputs">
+            <h2>Add a Book</h2>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+            <label for="pages"># of Pages</label>
+            <input type="number" id="pages" name="pages">
+            <label for="finished">Finished Reading?</label>
+            <input type="checkbox" id="finished" name="finished" value="true">
+            <button>Add</button>
+        </div>
+    </div>
+
+    <div id="book-cards">
+        <div class="book-card">
+            <h3 class="book-title">Kitchen Confidential</h3>
+            <h4 class="book-author">Anthony Bourdain</h3>
+            <h4 class="book-pages-heading">Pages:</h4>
+            <p id="book-pages">389</p>
+            <h4 class="finished">Finished</h4>
+        </div>
+
+        <div class="book-card">
+            <h3 class="book-title">Savor</h3>
+            <h4 class="book-author">Fatima Ali</h3>
+            <h4 class="book-pages-heading">Pages:</h4>
+            <p id="book-pages">364</p>
+            <h4 class="finished">Finished</h4>
+        </div>
+
+        <div class="book-card">
+            <h3 class="book-title">The Creative Act: A Way of Being</h3>
+            <h4 class="book-author">Rick Rubin</h3>
+            <h4 class="book-pages-heading">Pages:</h4>
+            <p id="book-pages">245</p>
+            <h4 class="finished">Finished</h4>
+        </div>
+
+    </div>
     
 </body>
 </html>
