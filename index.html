@@ -13,7 +13,7 @@
 <body>
     <div id="top">
         <h1>Library</h1>
-        <div id="add-book">
+        <form action="" method="">
             <h2>Add a Book</h2>
             <div>
                 <label for="title">Title</label>
@@ -31,8 +31,9 @@
                 <label for="finished">Finished Reading?</label>
                 <input type="checkbox" id="finished" name="finished" value="true">
             </div>
-            <button>Add Book</button>
-        </div>
+            <button id="add-book-btn" type="button">Add Book</button>
+        </form>
+
     </div>
 
     <div id="book-cards">
@@ -45,11 +46,11 @@
             </div>
             <div id="pages-finished-container">
                 <div class="pages-container">
-                    <p id="page-num">320</p>
-                    <p class="book-pages-heading">Pages</p>
+                    <p>320</p>
+                    <p>Pages</p>
                 </div>
                 <p>•</p>
-                <p class="finished">Finished</p>
+                <p>Finished</p>
             </div>
         </div>
 
@@ -68,11 +69,12 @@
                 <p>•</p>
                 <p class="finished">Finished</p>
             </div>
+            <button id="remove-btn" type="button">Remove</button>
         </div>
 
 
 
     </div>
-    
+    <script src="library.js"></script>
 </body>
 </html>
