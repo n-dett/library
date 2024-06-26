@@ -83,26 +83,41 @@ function addBook(newBook) {
 
 
 function createBook() {
-    const btn = document.getElementById("add-book-btn");
-    let title = document.getElementById("title");
-    let author = document.getElementById("author");
-    let pages = document.getElementById("pages");
-    let finished = document.getElementById("finished");
+    const addBtn = document.getElementById("add-book-btn");
+    let titleInput = document.getElementById("title");
+    let authorInput = document.getElementById("author");
+    let pagesInput = document.getElementById("pages");
+    let finishedInput = document.getElementById("finished");
+
+    let finished = "Not Finished";
 
     // Display correct text for "finished"
-    if(finished.checked){
-        finished = "Finished";
-    } else {
-        finished = "Not Finished";
-    }
+    if(finishedInput.checked) finished = "Finished";
+
 
     // On click save the input values to an object
-    btn.addEventListener("click", function() {
-    let newBook = new Book(title.value, author.value, Number(pages.value),
+    addBtn.addEventListener("click", function() {
+    let newBook = new Book(titleInput.value, authorInput.value, Number(pagesInput.value),
     finished);
+
+    // Clear the inputs
+    clearInputs();
 
     addBook(newBook);
     })
+}
+
+function clearInputs() {
+    let titleInput = document.getElementById("title");
+    let authorInput = document.getElementById("author");
+    let pagesInput = document.getElementById("pages");
+    let finishedInput = document.getElementById("finished");
+
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    finishedInput.checked = false;
+
 }
 
 
