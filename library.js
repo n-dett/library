@@ -39,16 +39,11 @@ function displayBooks() {
 
         // Add author
         const authorContainer = document.createElement("div");
-        cardContainer.classList.add("author-container");
+        authorContainer.classList.add("author-container");
 
         const byline = document.createElement("p");
         byline.innerText = `by ${book.author}`;
         authorContainer.appendChild(byline);
-
-        // const authorName = document.createElement("p");
-        // authorName.classList.add('author-name');
-        // authorName.innerText = book.author;
-        // authorContainer.appendChild(authorName);
         cardContainer.appendChild(authorContainer);
 
         // Add pages and finished
@@ -58,12 +53,8 @@ function displayBooks() {
         pagesContainer.classList.add("pages-container");
 
         const pageNum = document.createElement("p");
-        pageNum.innerText = book.pages;
+        pageNum.innerText = `${book.pages} Pages`;
         pagesContainer.appendChild(pageNum);
-
-        const pagesText = document.createElement("p");
-        pagesText.innerText = "Pages";
-        pagesContainer.appendChild(pagesText);
         pagesAndFinishedContainer.appendChild(pagesContainer);
 
         const bullet = document.createElement("p");
@@ -74,6 +65,12 @@ function displayBooks() {
         bookFinished.innerText = book.finished;
         pagesAndFinishedContainer.appendChild(bookFinished);
         cardContainer.appendChild(pagesAndFinishedContainer);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.innerText = "Remove";
+        removeBtn.classList.add("remove-btn");
+        cardContainer.appendChild(removeBtn);
+
 
         cardsContainer.appendChild(cardContainer);
     });
