@@ -1,6 +1,13 @@
+let book1 = new Book("Kitchen Confidential", "Anthony Bourdain", 320, "Finished");
+let book2 = new Book("The Creative Act: A Way of Being", "Rick Rubin", 432, "Finished");
+
+// Include two books by default
 const library = [];
+library.push(book1);
+library.push(book2);
+
 createBook();
-displayBooks();
+window.addEventListener("load", displayBooks());
 
 function Book(title, author, pages, finished) {
     this.title = title;
@@ -10,6 +17,12 @@ function Book(title, author, pages, finished) {
 }
 
 function displayBooks() {
+    // All cards container
+    const cardsContainer = document.getElementById("book-cards");
+
+    // Clear library
+    cardsContainer.innerHTML = '';
+
     library.forEach(book => {
         // Create card
         const cardContainer = document.createElement("div");
@@ -26,20 +39,21 @@ function displayBooks() {
 
         // Add author
         const authorContainer = document.createElement("div");
-        cardContainer.classList.add("#author-container");
+        cardContainer.classList.add("author-container");
 
-        const byText = document.createElement("p");
-        byText.innerText = "by";
-        authorContainer.appendChild(byText);
+        const byline = document.createElement("p");
+        byline.innerText = `by ${book.author}`;
+        authorContainer.appendChild(byline);
 
-        const authorName = document.createElement("p");
-        authorName.classList.add('author-name');
-        authorName.innerText = book.author;
-        authorContainer.appendChild(authorName);
+        // const authorName = document.createElement("p");
+        // authorName.classList.add('author-name');
+        // authorName.innerText = book.author;
+        // authorContainer.appendChild(authorName);
         cardContainer.appendChild(authorContainer);
 
         // Add pages and finished
         const pagesAndFinishedContainer = document.createElement("div");
+        pagesAndFinishedContainer.classList.add("pages-finished-container");
         const pagesContainer = document.createElement("div");
         pagesContainer.classList.add("pages-container");
 
@@ -61,7 +75,7 @@ function displayBooks() {
         pagesAndFinishedContainer.appendChild(bookFinished);
         cardContainer.appendChild(pagesAndFinishedContainer);
 
-        document.body.appendChild(cardContainer);
+        cardsContainer.appendChild(cardContainer);
     });
 }
 
@@ -93,3 +107,5 @@ function createBook() {
     addBook(newBook);
     })
 }
+
+
