@@ -8,6 +8,7 @@ library.push(book2);
 
 createBook();
 window.addEventListener("load", displayBooks());
+removeBook();
 
 function Book(title, author, pages, finished) {
     this.title = title;
@@ -66,10 +67,22 @@ function displayBooks() {
         pagesAndFinishedContainer.appendChild(bookFinished);
         cardContainer.appendChild(pagesAndFinishedContainer);
 
+        // Buttons
+        const btnsContainer = document.createElement("div");
+        btnsContainer.classList.add("card-btns-container");
+
+        // Status Button
+        const statusBtn = document.createElement("button");
+        statusBtn.innerText = "Change Status";
+        statusBtn.classList.add("card-btns");
+        btnsContainer.appendChild(statusBtn);
+
+        // Remove Button
         const removeBtn = document.createElement("button");
         removeBtn.innerText = "Remove";
-        removeBtn.classList.add("remove-btn");
-        cardContainer.appendChild(removeBtn);
+        removeBtn.classList.add("card-btns");
+        btnsContainer.appendChild(removeBtn);
+        cardContainer.appendChild(btnsContainer);
 
 
         cardsContainer.appendChild(cardContainer);
@@ -89,21 +102,23 @@ function createBook() {
     let pagesInput = document.getElementById("pages");
     let finishedInput = document.getElementById("finished");
 
-    let finished = "Not Finished";
 
-    // Display correct text for "finished"
-    if(finishedInput.checked) finished = "Finished";
 
 
     // On click save the input values to an object
     addBtn.addEventListener("click", function() {
-    let newBook = new Book(titleInput.value, authorInput.value, Number(pagesInput.value),
-    finished);
+        // Display correct text for "finished"
+        let finished = "Not Finished";
+        if(finishedInput.checked) finished = "Finished";
 
-    // Clear the inputs
-    clearInputs();
+        // Create new book
+        let newBook = new Book(titleInput.value, authorInput.value, Number(pagesInput.value),
+        finished);
 
-    addBook(newBook);
+        // Clear the inputs
+        clearInputs();
+
+        addBook(newBook);
     })
 }
 
@@ -117,6 +132,10 @@ function clearInputs() {
     authorInput.value = "";
     pagesInput.value = "";
     finishedInput.checked = false;
+
+}
+
+function removeBook() {
 
 }
 

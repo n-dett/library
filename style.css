@@ -127,7 +127,13 @@ button:hover {
     background-color: rgb(46, 46, 67);
 }
 
-.remove-btn {
+
+.card-btns-container {
+    display: flex;
+    gap: 5%;
+}
+
+.card-btns {
     margin-top: 15px;
     justify-self: flex-end;
     font-size: 14px;
