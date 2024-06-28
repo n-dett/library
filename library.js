@@ -1,6 +1,8 @@
 let book1 = new Book("Kitchen Confidential", "Anthony Bourdain", 320, "Finished");
 let book2 = new Book("The Creative Act: A Way of Being", "Rick Rubin", 432, "Finished");
 
+
+
 // Include two books by default
 const library = [];
 library.push(book1);
@@ -8,6 +10,7 @@ library.push(book2);
 
 createBook();
 window.addEventListener("load", displayBooks());
+// changeStatus();
 removeBook();
 
 function Book(title, author, pages, finished) {
@@ -24,10 +27,11 @@ function displayBooks() {
     // Clear library
     cardsContainer.innerHTML = '';
 
-    library.forEach(book => {
+    library.forEach((book, index) => {
         // Create card
         const cardContainer = document.createElement("div");
         cardContainer.classList.add("book-card");
+        cardContainer.setAttribute("data-id", index);
 
         // Add title
         const bookTitle = document.createElement("h3");
@@ -63,6 +67,7 @@ function displayBooks() {
         pagesAndFinishedContainer.appendChild(bullet);
 
         const bookFinished = document.createElement("p");
+        bookFinished.classList.add("book-finished");
         bookFinished.innerText = book.finished;
         pagesAndFinishedContainer.appendChild(bookFinished);
         cardContainer.appendChild(pagesAndFinishedContainer);
@@ -75,12 +80,14 @@ function displayBooks() {
         const statusBtn = document.createElement("button");
         statusBtn.innerText = "Change Status";
         statusBtn.classList.add("card-btns");
+        statusBtn.classList.add("status-btn");
         btnsContainer.appendChild(statusBtn);
 
         // Remove Button
         const removeBtn = document.createElement("button");
         removeBtn.innerText = "Remove";
         removeBtn.classList.add("card-btns");
+        removeBtn.classList.add("remove-btns");
         btnsContainer.appendChild(removeBtn);
         cardContainer.appendChild(btnsContainer);
 
@@ -135,8 +142,53 @@ function clearInputs() {
 
 }
 
-function removeBook() {
 
+// function changeStatus() {
+//     // event.target
+
+//     let statusBtn = document.getElementsByClassName("status-btn");
+//     let bookCard = statusBtn.parentNode;
+//     let finishedText = bookCard.querySelector("book-finished");
+
+
+//     statusBtn.addEventListener('click', function () {
+//         if(finishedText == "Finished") {
+//             finishedText.innerText = "Not Finished";
+//         } else {
+//             finishedText.innerText = "Finished";
+//         }
+//     })
+
+// }
+
+
+
+
+function removeBook() {
+    document.addEventListener("click", function(e) {
+        let clickedBtn = e.target;
+            if(clickedBtn.classList.contains('remove-btns')){
+                let bookCard = clickedBtn.closest('.book-card');
+                if(bookCard){
+                    // Remove book from the DOM
+                    bookCard.remove();
+
+                    // Remove book from the array
+                    let removeIndex = Number(bookCard.getAttribute("data-id"));
+                    library.splice(removeIndex, 1);
+
+                    // Reassign index attributes
+                    let bookCards = document.querySelectorAll(".book-card");
+                    bookCards.forEach(book => {
+                        let bookIndex = Number(book.getAttribute("data-id"));
+                        if(bookIndex > removeIndex){
+                                bookIndex--;
+                                book.setAttribute("data-id", bookIndex);
+                        }
+                    })
+                }
+            }
+    })
 }
 
 
