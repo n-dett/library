@@ -10,7 +10,7 @@ library.push(book2);
 
 createBook();
 window.addEventListener("load", displayBooks());
-// changeStatus();
+changeStatus();
 removeBook();
 
 function Book(title, author, pages, finished) {
@@ -143,29 +143,36 @@ function clearInputs() {
 }
 
 
-// function changeStatus() {
-//     // event.target
+// Toggle finished status
+function changeStatus() {
+    document.addEventListener("click", function(e) {
+        if(e.target.classList.contains('status-btn')) {
+            let bookCard = e.target.closest('.book-card');
+            let index = bookCard.getAttribute("data-id");
+            let finishedContainer = bookCard.children[3];
+            let finishedText = finishedContainer.children[2];
 
-//     let statusBtn = document.getElementsByClassName("status-btn");
-//     let bookCard = statusBtn.parentNode;
-//     let finishedText = bookCard.querySelector("book-finished");
-
-
-//     statusBtn.addEventListener('click', function () {
-//         if(finishedText == "Finished") {
-//             finishedText.innerText = "Not Finished";
-//         } else {
-//             finishedText.innerText = "Finished";
-//         }
-//     })
-
-// }
+            // Update DOM and object
+            if(bookCard) {
+                let bookObj = library[index]; 
+                let status = bookObj.finished;
+                if(status == 'Finished'){
+                    bookObj.finished = 'Not Finished';
+                    finishedText.innerText = 'Not Finished';
+                } else {
+                    bookObj.finished = 'Finished';
+                    finishedText.innerText = 'Finished';
+                }
+            }
+        }
+    })
+}
 
 
 
 
 function removeBook() {
-    document.addEventListener("click", function(e) {
+    document.addEventListener('click', function(e) {
         let clickedBtn = e.target;
             if(clickedBtn.classList.contains('remove-btns')){
                 let bookCard = clickedBtn.closest('.book-card');
