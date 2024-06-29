@@ -13,54 +13,35 @@
 <body>
     <div id="top">
         <h1>Library</h1>
-        <form action="" method="">
-            <h2>Add a Book</h2>
-            <div>
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title">
-            </div>
-            <div>
-                <label for="author">Author</label>
-                <input type="text" id="author" name="author">
-            </div>
-            <div id="pages-container">
-                <label for="pages"># of Pages</label>
-                <input type="number" id="pages" name="pages">
-            </div>
-            <div id="finished-container">
-                <label for="finished">Finished Reading?</label>
-                <input type="checkbox" id="finished" name="finished">
-            </div>
-            <button id="add-book-btn" type="button">Add Book</button>
-        </form>
+        <button id="new-book-btn">New Book</button>
+        <div id="form-container">
+            <form action="" method="">
+                <h2>Add a Book</h2>
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div id="pages-container">
+                    <label for="pages"># of Pages</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <div id="finished-container">
+                    <label for="finished">Finished Reading?</label>
+                    <input type="checkbox" id="finished" name="finished">
+                </div>
+                <button id="add-book-btn" type="button">Add Book</button>
+            </form>
+        </div>
 
     </div>
 
     <div id="book-cards">
-        <!-- <div class="book-card">
-            <h3 class="book-title">Kitchen Confidential</h3>    
-            <hr>
-            <div class="author-container">
-                <p>by</p>
-                <p class="author-name">Anthony Bourdain</p>
-            </div>
-            <div class="pages-finished-container">
-                <div class="pages-container">
-                    <p>320</p>
-                    <p>Pages</p>
-                </div>
-                <p>•</p>
-                <p>Finished</p>
-            </div>
-
-            <button class="remove-btn" type="button">Remove</button>
-
-        </div>
-
- -->
-
-
     </div>
+
     <script src="library.js"></script>
 </body>
 </html>

@@ -4,10 +4,16 @@ body {
     font-weight: 400;
     background-color: black;
     margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #top {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -32,6 +38,16 @@ h3 {
 
 }
 
+#form-container {
+    width: 100%;
+    transition: transform 0.3s, margin 0.3s, opacity 0.1s ease;
+    transform: translateY(100%);
+    margin-bottom: 0;
+    margin-top: -75px;
+    z-index: -1;
+    opacity: 0;
+}
+
 
 form {
     padding: 20px 0;
@@ -40,7 +56,18 @@ form {
     gap: min(3%, 30px);
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    z-index: inherit;
 }
+
+.form-open #form-container {
+    transform: translateY(0);
+    z-index: 2;
+    margin-bottom: 40px;
+    margin-top: 0;
+    opacity: 100%;
+}
+
 
 label {
     display: block;
@@ -139,6 +166,12 @@ button:hover {
     font-size: 14px;
     width: 80px;
 }
+
+#new-book-btn {
+    margin-bottom: 30px;
+}
+
+
 
 
 

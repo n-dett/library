@@ -12,6 +12,7 @@ createBook();
 window.addEventListener("load", displayBooks());
 changeStatus();
 removeBook();
+openForm();
 
 function Book(title, author, pages, finished) {
     this.title = title;
@@ -125,6 +126,9 @@ function createBook() {
         // Clear the inputs
         clearInputs();
 
+        // Hide form
+        document.body.classList.toggle('form-open');
+
         addBook(newBook);
     })
 }
@@ -196,6 +200,13 @@ function removeBook() {
                 }
             }
     })
+}
+
+
+function openForm() {
+   document.getElementById('new-book-btn').addEventListener('click', function() {
+        document.body.classList.toggle('form-open');
+   })
 }
 
 
