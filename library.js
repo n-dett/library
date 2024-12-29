@@ -1,6 +1,15 @@
-let book1 = new Book("Kitchen Confidential", "Anthony Bourdain", 320, "Finished");
-let book2 = new Book("The Creative Act: A Way of Being", "Rick Rubin", 432, "Finished");
+class Book {
+    constructor(title, author, pages, finished) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.finished = finished;
+    }
+}
 
+
+const book1 = new Book("Kitchen Confidential", "Anthony Bourdain", 320, "Finished");
+const book2 = new Book("The Creative Act: A Way of Being", "Rick Rubin", 432, "Finished");
 
 
 // Include two books by default
@@ -14,12 +23,7 @@ changeStatus();
 removeBook();
 openForm();
 
-function Book(title, author, pages, finished) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.finished = finished;
-}
+
 
 function displayBooks() {
     // All cards container
